@@ -64,7 +64,7 @@ HEADERS +=\
 DESTDIR_RELEASE= ./../../../build/release
 DESTDIR_DEBUG= ./../../../build/debug
 #OSGEO4W_PATH="C:\Program Files\QGIS 2.18"
-OSGEO4W_PATH="C:\Program Files\QGIS 3.10"
+OSGEO4W_PATH="C:\Program Files\QGIS 3.4"
 EIGEN_PATH= ./../../../depends/eigen-eigen-323c052e1731
 
 debug{
