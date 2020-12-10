@@ -61,10 +61,12 @@ HEADERS +=\
     TONIpbpProject.h \
     ClassificationProject.h
 
-DESTDIR_RELEASE=C:\dev\release
-DESTDIR_DEBUG=C:\dev\debug
+DESTDIR_RELEASE= ./../../../build/release
+DESTDIR_DEBUG= ./../../../build/debug
 #OSGEO4W_PATH="C:\Program Files\QGIS 2.18"
-OSGEO4W_PATH="C:\Program Files\QGIS 3.4"
+OSGEO4W_PATH="C:\Program Files\QGIS 3.10"
+EIGEN_PATH= ./../../../depends/eigen-eigen-323c052e1731
+
 debug{
     DESTDIR = $$DESTDIR_DEBUG
     LIBS += -L$$DESTDIR_DEBUG
@@ -73,6 +75,7 @@ debug{
     LIBS += -L$$DESTDIR_RELEASE
 }
 
+INCLUDEPATH += $$EIGEN_PATH
 #INCLUDEPATH += ../libPW
 INCLUDEPATH += ../libProcessTools
 INCLUDEPATH += ../libCRS

@@ -11,13 +11,13 @@ MAKEFILE      = Makefile.Debug
 
 CC            = cl
 CXX           = cl
-DEFINES       = -DUNICODE -DWIN32 -DWIN64 -DLIBREMOTESENSING_LIBRARY -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_SQL_LIB -DQT_CORE_LIB -D_WINDLL
+DEFINES       = -DUNICODE -DWIN32 -DWIN64 -DLIBREMOTESENSING_LIBRARY -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_SQL_LIB -DQT_CORE_LIB -D_WINDLL
 CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zi -MDd -W3 -w44456 -w44457 -w44458 /Fddebug\libRemoteSensing.vc.pdb $(DEFINES)
 CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -Zi -MDd -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc /Fddebug\libRemoteSensing.vc.pdb $(DEFINES)
-INCPATH       = -I. -I..\libProcessTools -I..\libCRS -I..\libIGDAL -I..\libNestedGrid -I.. -I..\libSplines -I. -I"C:\Program Files\QGIS 3.4\include" -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtANGLE -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtXml -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtSql -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore -Idebug -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\win32-msvc2015 
+INCPATH       = -I. -I..\..\..\depends\eigen-eigen-323c052e1731 -I..\libProcessTools -I..\libCRS -I..\libIGDAL -I..\libNestedGrid -I.. -I..\libSplines -I. -I"C:\Program Files\QGIS 3.10\include" -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtANGLE -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtXml -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtSql -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore -Idebug -IC:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\win32-msvc2015 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /DLL /SUBSYSTEM:WINDOWS
-LIBS          = /LIBPATH:C:\dev\debug /LIBPATH:"C:\Program Files\QGIS 3.4\bin" "C:\Program Files\QGIS 3.4\lib\proj_i.lib" "C:\Program Files\QGIS 3.4\lib\gdal_i.lib" "C:\Program Files\QGIS 3.4\lib\geos_c.lib" C:\dev\debug\libProcessTools.lib C:\dev\debug\libCRS.lib C:\dev\debug\libIGDAL.lib C:\dev\debug\libNestedGrid.lib C:\dev\debug\libSplines.lib /LIBPATH:C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Widgetsd.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Guid.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Xmld.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Sqld.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Cored.lib 
+LIBS          = /LIBPATH:..\..\..\build\debug /LIBPATH:"C:\Program Files\QGIS 3.10\bin" "C:\Program Files\QGIS 3.10\lib\proj_i.lib" "C:\Program Files\QGIS 3.10\lib\gdal_i.lib" "C:\Program Files\QGIS 3.10\lib\geos_c.lib" ..\..\..\build\debug\libProcessTools.lib ..\..\..\build\debug\libCRS.lib ..\..\..\build\debug\libIGDAL.lib ..\..\..\build\debug\libSplines.lib /LIBPATH:C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Widgetsd.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Guid.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Xmld.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Sqld.lib C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Cored.lib 
 QMAKE         = C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -108,9 +108,9 @@ DIST          =  libremotesensing_global.h \
 		TONIpbpProject.cpp \
 		ClassificationProject.cpp
 QMAKE_TARGET  = libRemoteSensing
-DESTDIR        = C:\dev\debug\ #avoid trailing-slash linebreak
+DESTDIR        = ..\..\..\build\debug\ #avoid trailing-slash linebreak
 TARGET         = libRemoteSensing.dll
-DESTDIR_TARGET = C:\dev\debug\libRemoteSensing.dll
+DESTDIR_TARGET = ..\..\..\build\debug\libRemoteSensing.dll
 
 ####### Implicit rules
 
@@ -167,19 +167,19 @@ $(OBJECTS) $(LIBS)
 <<
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-msvc2015 -o Makefile.Debug libRemoteSensing.pro
+	@$(QMAKE) -spec win32-msvc2015 "CONFIG+=debug" "CONFIG+=qml_debug" -o Makefile.Debug libRemoteSensing.pro
 
 qmake_all: FORCE
 
 dist:
-	$(ZIP) libRemoteSensing.zip $(SOURCES) $(DIST) libRemoteSensing.pro C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\spec_pre.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\common\angle.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\common\msvc-base.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\common\msvc-desktop.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\qconfig.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_labscontrols_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_labstemplates_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webengine.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webengine_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginecore.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginecore_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginewidgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qt_functions.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qt_config.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\qt_config.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\win32-msvc2015\qmake.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\spec_post.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\default_pre.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\resolve_config.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\default_post.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\build_pass.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\precompile_header.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\warn_on.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qt.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\resources.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\moc.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\uic.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\file_copies.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\windows.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\exceptions.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\yacc.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\lex.prf libRemoteSensing.pro C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Widgetsd.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Guid.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Xmld.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Sqld.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Cored.prl    libremotesensing_global.h remotesensing_definitions.h Scene.h ScenesManager.h SceneLandsat8.h SceneLandsat8_definitions.h SceneSentinel2_definitions.h SceneSentinel2.h PersistenceManager.h persistencemanager_definitions.h Algorithms.h Parameter.h ParameterDefinitions.h ParametersManager.h ParametersManagerDialog.h algorithms_definitions.h TONIpbpProject.h ClassificationProject.h Scene.cpp ScenesManager.cpp SceneLandsat8.cpp SceneSentinel2.cpp PersistenceManager.cpp Algorithms.cpp Parameter.cpp ParametersManager.cpp ParametersManagerDialog.cpp TONIpbpProject.cpp ClassificationProject.cpp     
+	$(ZIP) libRemoteSensing.zip $(SOURCES) $(DIST) libRemoteSensing.pro C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\spec_pre.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\common\angle.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\common\msvc-base.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\common\msvc-desktop.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\qconfig.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_labscontrols_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_labstemplates_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webengine.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webengine_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginecore.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginecore_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginewidgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qt_functions.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qt_config.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\qt_config.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\win32-msvc2015\qmake.conf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\spec_post.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\default_pre.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\resolve_config.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\default_post.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\build_pass.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qml_debug.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\precompile_header.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\warn_on.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\qt.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\resources.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\moc.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\uic.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\file_copies.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\win32\windows.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\exceptions.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\yacc.prf C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\mkspecs\features\lex.prf libRemoteSensing.pro C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Widgetsd.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Guid.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Xmld.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Sqld.prl C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\lib\Qt5Cored.prl    libremotesensing_global.h remotesensing_definitions.h Scene.h ScenesManager.h SceneLandsat8.h SceneLandsat8_definitions.h SceneSentinel2_definitions.h SceneSentinel2.h PersistenceManager.h persistencemanager_definitions.h Algorithms.h Parameter.h ParameterDefinitions.h ParametersManager.h ParametersManagerDialog.h algorithms_definitions.h TONIpbpProject.h ClassificationProject.h Scene.cpp ScenesManager.cpp SceneLandsat8.cpp SceneSentinel2.cpp PersistenceManager.cpp Algorithms.cpp Parameter.cpp ParametersManager.cpp ParametersManagerDialog.cpp TONIpbpProject.cpp ClassificationProject.cpp     
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug\Scene.obj debug\ScenesManager.obj debug\SceneLandsat8.obj debug\SceneSentinel2.obj debug\PersistenceManager.obj debug\Algorithms.obj debug\Parameter.obj debug\ParametersManager.obj debug\ParametersManagerDialog.obj debug\TONIpbpProject.obj debug\ClassificationProject.obj debug\moc_Scene.obj debug\moc_SceneLandsat8.obj debug\moc_SceneSentinel2.obj debug\moc_PersistenceManager.obj debug\moc_ParametersManagerDialog.obj debug\moc_TONIpbpProject.obj debug\moc_ClassificationProject.obj
-	-$(DEL_FILE) C:\dev\debug\libRemoteSensing.exp debug\libRemoteSensing.vc.pdb C:\dev\debug\libRemoteSensing.ilk C:\dev\debug\libRemoteSensing.idb
+	-$(DEL_FILE) ..\..\..\build\debug\libRemoteSensing.exp debug\libRemoteSensing.vc.pdb ..\..\..\build\debug\libRemoteSensing.ilk ..\..\..\build\debug\libRemoteSensing.idb
 
 distclean: clean 
-	-$(DEL_FILE) C:\dev\debug\libRemoteSensing.lib C:\dev\debug\libRemoteSensing.pdb
+	-$(DEL_FILE) ..\..\..\build\debug\libRemoteSensing.lib ..\..\..\build\debug\libRemoteSensing.pdb
 	-$(DEL_FILE) $(DESTDIR_TARGET)
 	-$(DEL_FILE) Makefile.Debug
 
@@ -270,32 +270,32 @@ debug\moc_Scene.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QTextStream \
 		libremotesensing_global.h \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		Scene.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore Scene.h -o debug\moc_Scene.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore Scene.h -o debug\moc_Scene.cpp
 
 debug\moc_SceneLandsat8.cpp: SceneLandsat8_definitions.h \
 		Scene.h \
@@ -371,34 +371,34 @@ debug\moc_SceneLandsat8.cpp: SceneLandsat8_definitions.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QTextStream \
 		libremotesensing_global.h \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qdatetime.h \
 		SceneLandsat8.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore SceneLandsat8.h -o debug\moc_SceneLandsat8.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore SceneLandsat8.h -o debug\moc_SceneLandsat8.cpp
 
 debug\moc_SceneSentinel2.cpp: SceneSentinel2_definitions.h \
 		Scene.h \
@@ -474,34 +474,34 @@ debug\moc_SceneSentinel2.cpp: SceneSentinel2_definitions.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QTextStream \
 		libremotesensing_global.h \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qdatetime.h \
 		SceneSentinel2.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore SceneSentinel2.h -o debug\moc_SceneSentinel2.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore SceneSentinel2.h -o debug\moc_SceneSentinel2.cpp
 
 debug\moc_PersistenceManager.cpp: ..\libIGDAL\SpatiaLite.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QStringList \
@@ -574,35 +574,35 @@ debug\moc_PersistenceManager.cpp: ..\libIGDAL\SpatiaLite.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qcontiguouscache.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVector \
 		..\libIGDAL\libIGDAL_global.h \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
 		persistencemanager_definitions.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		libremotesensing_global.h \
 		PersistenceManager.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore PersistenceManager.h -o debug\moc_PersistenceManager.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore PersistenceManager.h -o debug\moc_PersistenceManager.cpp
 
 debug\moc_ParametersManagerDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QDialog \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qdialog.h \
@@ -711,7 +711,7 @@ debug\moc_ParametersManagerDialog.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\Q
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtGui\qtouchdevice.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QWidget \
 		ParametersManagerDialog.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore ParametersManagerDialog.h -o debug\moc_ParametersManagerDialog.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore ParametersManagerDialog.h -o debug\moc_ParametersManagerDialog.cpp
 
 debug\moc_TONIpbpProject.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qstring.h \
@@ -787,7 +787,7 @@ debug\moc_TONIpbpProject.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSt
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QStringList \
 		libremotesensing_global.h \
 		TONIpbpProject.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore TONIpbpProject.h -o debug\moc_TONIpbpProject.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore TONIpbpProject.h -o debug\moc_TONIpbpProject.cpp
 
 debug\moc_ClassificationProject.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qstring.h \
@@ -863,7 +863,7 @@ debug\moc_ClassificationProject.cpp: C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtC
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QStringList \
 		libremotesensing_global.h \
 		ClassificationProject.h
-	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libProcessTools -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libCRS -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libIGDAL -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libNestedGrid -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libSplines -IE:/Qt5CreatorPrograms/TIDOP_TOOLS_USAL/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.4/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore ClassificationProject.h -o debug\moc_ClassificationProject.cpp
+	C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/mkspecs/win32-msvc2015 -IE:/dev/src/libs/libRemoteSensing -IE:/dev/depends/eigen-eigen-323c052e1731 -IE:/dev/src/libs/libProcessTools -IE:/dev/src/libs/libCRS -IE:/dev/src/libs/libIGDAL -IE:/dev/src/libs/libNestedGrid -IE:/dev/src/libs -IE:/dev/src/libs/libSplines -IE:/dev/src/libs/libRemoteSensing -I"C:/Program Files/QGIS 3.10/include" -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtWidgets -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtGui -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtANGLE -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtXml -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtSql -IC:/Qt/Qt5.6.3/5.6.3/msvc2015_64/include/QtCore ClassificationProject.h -o debug\moc_ClassificationProject.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -954,30 +954,30 @@ debug\Scene.obj: Scene.cpp Scene.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QTextStream \
 		libremotesensing_global.h \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		..\libNestedGrid\NestedGridProject.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtXml\QDomDocument \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtXml\qdom.h \
@@ -986,23 +986,22 @@ debug\Scene.obj: Scene.cpp Scene.h \
 		..\libNestedGrid\libnestedgrid_global.h \
 		remotesensing_definitions.h
 
-debug\ScenesManager.obj: ScenesManager.cpp "C:\Program Files\QGIS 3.4\include\ogr_geos.h" \
-		"C:\Program Files\QGIS 3.4\include\geos_c.h" \
-		"C:\Program Files\QGIS 3.4\include\geos\version.h" \
-		"C:\Program Files\QGIS 3.4\include\geos\export.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
+debug\ScenesManager.obj: ScenesManager.cpp "C:\Program Files\QGIS 3.10\include\ogr_geos.h" \
+		"C:\Program Files\QGIS 3.10\include\geos_c.h" \
+		"C:\Program Files\QGIS 3.10\include\geos\export.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
 		ScenesManager.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qstring.h \
@@ -1079,17 +1078,17 @@ debug\ScenesManager.obj: ScenesManager.cpp "C:\Program Files\QGIS 3.4\include\og
 		Scene.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QTextStream \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QDateTime \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qdatetime.h \
 		SceneSentinel2.h \
@@ -1098,23 +1097,22 @@ debug\ScenesManager.obj: ScenesManager.cpp "C:\Program Files\QGIS 3.4\include\og
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qsettings.h
 
-debug\SceneLandsat8.obj: SceneLandsat8.cpp "C:\Program Files\QGIS 3.4\include\ogr_geos.h" \
-		"C:\Program Files\QGIS 3.4\include\geos_c.h" \
-		"C:\Program Files\QGIS 3.4\include\geos\version.h" \
-		"C:\Program Files\QGIS 3.4\include\geos\export.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
+debug\SceneLandsat8.obj: SceneLandsat8.cpp "C:\Program Files\QGIS 3.10\include\ogr_geos.h" \
+		"C:\Program Files\QGIS 3.10\include\geos_c.h" \
+		"C:\Program Files\QGIS 3.10\include\geos\export.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QDir \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qdir.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qstring.h \
@@ -1321,17 +1319,17 @@ debug\SceneLandsat8.obj: SceneLandsat8.cpp "C:\Program Files\QGIS 3.4\include\og
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVector \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QMap \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		..\libIGDAL\libIGDAL_global.h \
 		..\libCRS\CRSTools.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
@@ -1582,30 +1580,30 @@ debug\SceneSentinel2.obj: SceneSentinel2.cpp C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\inc
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVector \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QMap \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		..\libIGDAL\libIGDAL_global.h \
 		..\libCRS\CRSTools.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QSettings \
@@ -1770,30 +1768,30 @@ debug\PersistenceManager.obj: PersistenceManager.cpp C:\Qt\Qt5.6.3\5.6.3\msvc201
 		..\libIGDAL\SpatiaLite.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QStringList \
 		..\libIGDAL\libIGDAL_global.h \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
 		persistencemanager_definitions.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QObject \
 		..\libNestedGrid\NestedGridTools.h \
@@ -1929,220 +1927,230 @@ debug\Algorithms.obj: Algorithms.cpp C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtC
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\qdatetime.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QMessageBox \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\qmessagebox.h \
-		..\Eigen\Dense \
-		..\Eigen\Core \
-		..\Eigen\src\Core\util\DisableStupidWarnings.h \
-		..\Eigen\src\Core\util\Macros.h \
-		..\Eigen\src\Core\util\MKL_support.h \
-		..\Eigen\src\Core\util\Constants.h \
-		..\Eigen\src\Core\util\ForwardDeclarations.h \
-		..\Eigen\src\Core\util\Meta.h \
-		..\Eigen\src\Core\util\StaticAssert.h \
-		..\Eigen\src\Core\util\XprHelper.h \
-		..\Eigen\src\Core\util\Memory.h \
-		..\Eigen\src\Core\NumTraits.h \
-		..\Eigen\src\Core\MathFunctions.h \
-		..\Eigen\src\Core\GenericPacketMath.h \
-		..\Eigen\src\Core\arch\SSE\PacketMath.h \
-		..\Eigen\src\Core\arch\SSE\MathFunctions.h \
-		..\Eigen\src\Core\arch\SSE\Complex.h \
-		..\Eigen\src\Core\arch\AltiVec\PacketMath.h \
-		..\Eigen\src\Core\arch\AltiVec\Complex.h \
-		..\Eigen\src\Core\arch\NEON\PacketMath.h \
-		..\Eigen\src\Core\arch\NEON\Complex.h \
-		..\Eigen\src\Core\arch\Default\Settings.h \
-		..\Eigen\src\Core\Functors.h \
-		..\Eigen\src\Core\DenseCoeffsBase.h \
-		..\Eigen\src\Core\DenseBase.h \
-		..\Eigen\src\plugins\BlockMethods.h \
-		..\Eigen\src\Core\MatrixBase.h \
-		..\Eigen\src\plugins\CommonCwiseUnaryOps.h \
-		..\Eigen\src\plugins\CommonCwiseBinaryOps.h \
-		..\Eigen\src\plugins\MatrixCwiseUnaryOps.h \
-		..\Eigen\src\plugins\MatrixCwiseBinaryOps.h \
-		..\Eigen\src\Core\EigenBase.h \
-		..\Eigen\src\Core\Assign.h \
-		..\Eigen\src\Core\util\BlasUtil.h \
-		..\Eigen\src\Core\DenseStorage.h \
-		..\Eigen\src\Core\NestByValue.h \
-		..\Eigen\src\Core\ForceAlignedAccess.h \
-		..\Eigen\src\Core\ReturnByValue.h \
-		..\Eigen\src\Core\NoAlias.h \
-		..\Eigen\src\Core\PlainObjectBase.h \
-		..\Eigen\src\Core\Matrix.h \
-		..\Eigen\src\Core\Array.h \
-		..\Eigen\src\Core\CwiseBinaryOp.h \
-		..\Eigen\src\Core\CwiseUnaryOp.h \
-		..\Eigen\src\Core\CwiseNullaryOp.h \
-		..\Eigen\src\Core\CwiseUnaryView.h \
-		..\Eigen\src\Core\SelfCwiseBinaryOp.h \
-		..\Eigen\src\Core\Dot.h \
-		..\Eigen\src\Core\StableNorm.h \
-		..\Eigen\src\Core\MapBase.h \
-		..\Eigen\src\Core\Stride.h \
-		..\Eigen\src\Core\Map.h \
-		..\Eigen\src\Core\Block.h \
-		..\Eigen\src\Core\VectorBlock.h \
-		..\Eigen\src\Core\Ref.h \
-		..\Eigen\src\Core\Transpose.h \
-		..\Eigen\src\Core\DiagonalMatrix.h \
-		..\Eigen\src\Core\Diagonal.h \
-		..\Eigen\src\Core\DiagonalProduct.h \
-		..\Eigen\src\Core\PermutationMatrix.h \
-		..\Eigen\src\Core\Transpositions.h \
-		..\Eigen\src\Core\Redux.h \
-		..\Eigen\src\Core\Visitor.h \
-		..\Eigen\src\Core\Fuzzy.h \
-		..\Eigen\src\Core\IO.h \
-		..\Eigen\src\Core\Swap.h \
-		..\Eigen\src\Core\CommaInitializer.h \
-		..\Eigen\src\Core\Flagged.h \
-		..\Eigen\src\Core\ProductBase.h \
-		..\Eigen\src\Core\GeneralProduct.h \
-		..\Eigen\src\Core\TriangularMatrix.h \
-		..\Eigen\src\Core\SelfAdjointView.h \
-		..\Eigen\src\Core\products\GeneralBlockPanelKernel.h \
-		..\Eigen\src\Core\products\Parallelizer.h \
-		..\Eigen\src\Core\products\CoeffBasedProduct.h \
-		..\Eigen\src\Core\products\GeneralMatrixVector.h \
-		..\Eigen\src\Core\products\GeneralMatrixMatrix.h \
-		..\Eigen\src\Core\SolveTriangular.h \
-		..\Eigen\src\Core\products\GeneralMatrixMatrixTriangular.h \
-		..\Eigen\src\Core\products\SelfadjointMatrixVector.h \
-		..\Eigen\src\Core\products\SelfadjointMatrixMatrix.h \
-		..\Eigen\src\Core\products\SelfadjointProduct.h \
-		..\Eigen\src\Core\products\SelfadjointRank2Update.h \
-		..\Eigen\src\Core\products\TriangularMatrixVector.h \
-		..\Eigen\src\Core\products\TriangularMatrixMatrix.h \
-		..\Eigen\src\Core\products\TriangularSolverMatrix.h \
-		..\Eigen\src\Core\products\TriangularSolverVector.h \
-		..\Eigen\src\Core\BandMatrix.h \
-		..\Eigen\src\Core\CoreIterators.h \
-		..\Eigen\src\Core\BooleanRedux.h \
-		..\Eigen\src\Core\Select.h \
-		..\Eigen\src\Core\VectorwiseOp.h \
-		..\Eigen\src\Core\Random.h \
-		..\Eigen\src\Core\Replicate.h \
-		..\Eigen\src\Core\Reverse.h \
-		..\Eigen\src\Core\ArrayBase.h \
-		..\Eigen\src\plugins\ArrayCwiseUnaryOps.h \
-		..\Eigen\src\plugins\ArrayCwiseBinaryOps.h \
-		..\Eigen\src\Core\ArrayWrapper.h \
-		..\Eigen\src\Core\products\GeneralMatrixMatrix_MKL.h \
-		..\Eigen\src\Core\products\GeneralMatrixVector_MKL.h \
-		..\Eigen\src\Core\products\GeneralMatrixMatrixTriangular_MKL.h \
-		..\Eigen\src\Core\products\SelfadjointMatrixMatrix_MKL.h \
-		..\Eigen\src\Core\products\SelfadjointMatrixVector_MKL.h \
-		..\Eigen\src\Core\products\TriangularMatrixMatrix_MKL.h \
-		..\Eigen\src\Core\products\TriangularMatrixVector_MKL.h \
-		..\Eigen\src\Core\products\TriangularSolverMatrix_MKL.h \
-		..\Eigen\src\Core\Assign_MKL.h \
-		..\Eigen\src\Core\GlobalFunctions.h \
-		..\Eigen\src\Core\util\ReenableStupidWarnings.h \
-		..\Eigen\Eigen2Support \
-		..\Eigen\src\Eigen2Support\Macros.h \
-		..\Eigen\src\Eigen2Support\Memory.h \
-		..\Eigen\src\Eigen2Support\Meta.h \
-		..\Eigen\src\Eigen2Support\Lazy.h \
-		..\Eigen\src\Eigen2Support\Cwise.h \
-		..\Eigen\src\Eigen2Support\CwiseOperators.h \
-		..\Eigen\src\Eigen2Support\TriangularSolver.h \
-		..\Eigen\src\Eigen2Support\Block.h \
-		..\Eigen\src\Eigen2Support\VectorBlock.h \
-		..\Eigen\src\Eigen2Support\Minor.h \
-		..\Eigen\src\Eigen2Support\MathFunctions.h \
-		..\Eigen\LU \
-		..\Eigen\src\misc\Solve.h \
-		..\Eigen\src\misc\Kernel.h \
-		..\Eigen\src\misc\Image.h \
-		..\Eigen\src\LU\FullPivLU.h \
-		..\Eigen\src\LU\PartialPivLU.h \
-		..\Eigen\src\LU\PartialPivLU_MKL.h \
-		..\Eigen\src\LU\Determinant.h \
-		..\Eigen\src\LU\Inverse.h \
-		..\Eigen\src\LU\arch\Inverse_SSE.h \
-		..\Eigen\src\Eigen2Support\LU.h \
-		..\Eigen\Cholesky \
-		..\Eigen\src\Cholesky\LLT.h \
-		..\Eigen\src\Cholesky\LDLT.h \
-		..\Eigen\src\Cholesky\LLT_MKL.h \
-		..\Eigen\QR \
-		..\Eigen\Jacobi \
-		..\Eigen\src\Jacobi\Jacobi.h \
-		..\Eigen\Householder \
-		..\Eigen\src\Householder\Householder.h \
-		..\Eigen\src\Householder\HouseholderSequence.h \
-		..\Eigen\src\Householder\BlockHouseholder.h \
-		..\Eigen\src\QR\HouseholderQR.h \
-		..\Eigen\src\QR\FullPivHouseholderQR.h \
-		..\Eigen\src\QR\ColPivHouseholderQR.h \
-		..\Eigen\src\QR\HouseholderQR_MKL.h \
-		..\Eigen\src\QR\ColPivHouseholderQR_MKL.h \
-		..\Eigen\src\Eigen2Support\QR.h \
-		..\Eigen\Eigenvalues \
-		..\Eigen\Geometry \
-		..\Eigen\SVD \
-		..\Eigen\src\SVD\JacobiSVD.h \
-		..\Eigen\src\SVD\JacobiSVD_MKL.h \
-		..\Eigen\src\SVD\UpperBidiagonalization.h \
-		..\Eigen\src\Eigen2Support\SVD.h \
-		..\Eigen\src\Geometry\OrthoMethods.h \
-		..\Eigen\src\Geometry\EulerAngles.h \
-		..\Eigen\src\Geometry\Homogeneous.h \
-		..\Eigen\src\Geometry\RotationBase.h \
-		..\Eigen\src\Geometry\Rotation2D.h \
-		..\Eigen\src\Geometry\Quaternion.h \
-		..\Eigen\src\Geometry\AngleAxis.h \
-		..\Eigen\src\Geometry\Transform.h \
-		..\Eigen\src\Geometry\Translation.h \
-		..\Eigen\src\Geometry\Scaling.h \
-		..\Eigen\src\Geometry\Hyperplane.h \
-		..\Eigen\src\Geometry\ParametrizedLine.h \
-		..\Eigen\src\Geometry\AlignedBox.h \
-		..\Eigen\src\Geometry\Umeyama.h \
-		..\Eigen\src\Geometry\arch\Geometry_SSE.h \
-		..\Eigen\src\Eigen2Support\Geometry\All.h \
-		..\Eigen\src\Eigen2Support\Geometry\RotationBase.h \
-		..\Eigen\src\Eigen2Support\Geometry\Rotation2D.h \
-		..\Eigen\src\Eigen2Support\Geometry\Quaternion.h \
-		..\Eigen\src\Eigen2Support\Geometry\AngleAxis.h \
-		..\Eigen\src\Eigen2Support\Geometry\Transform.h \
-		..\Eigen\src\Eigen2Support\Geometry\Translation.h \
-		..\Eigen\src\Eigen2Support\Geometry\Scaling.h \
-		..\Eigen\src\Eigen2Support\Geometry\AlignedBox.h \
-		..\Eigen\src\Eigen2Support\Geometry\Hyperplane.h \
-		..\Eigen\src\Eigen2Support\Geometry\ParametrizedLine.h \
-		..\Eigen\src\Eigenvalues\Tridiagonalization.h \
-		..\Eigen\src\Eigenvalues\RealSchur.h \
-		..\Eigen\src\Eigenvalues\HessenbergDecomposition.h \
-		..\Eigen\src\Eigenvalues\EigenSolver.h \
-		..\Eigen\src\Eigenvalues\SelfAdjointEigenSolver.h \
-		..\Eigen\src\Eigenvalues\GeneralizedSelfAdjointEigenSolver.h \
-		..\Eigen\src\Eigenvalues\ComplexSchur.h \
-		..\Eigen\src\Eigenvalues\ComplexEigenSolver.h \
-		..\Eigen\src\Eigenvalues\RealQZ.h \
-		..\Eigen\src\Eigenvalues\GeneralizedEigenSolver.h \
-		..\Eigen\src\Eigenvalues\MatrixBaseEigenvalues.h \
-		..\Eigen\src\Eigenvalues\RealSchur_MKL.h \
-		..\Eigen\src\Eigenvalues\ComplexSchur_MKL.h \
-		..\Eigen\src\Eigenvalues\SelfAdjointEigenSolver_MKL.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Dense \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Core \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\DisableStupidWarnings.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\Macros.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\MKL_support.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\misc\blas.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\Constants.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\Meta.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\ForwardDeclarations.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\StaticAssert.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\XprHelper.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\Memory.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\NumTraits.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\GenericPacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\MathFunctionsImpl.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\Default\ConjHelper.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\SSE\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AVX\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AVX512\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AVX512\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\SSE\Complex.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\SSE\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AVX\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AVX\Complex.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AVX\TypeCasting.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\SSE\TypeCasting.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AltiVec\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AltiVec\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\AltiVec\Complex.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\NEON\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\NEON\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\NEON\Complex.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\ZVector\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\ZVector\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\ZVector\Complex.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\CUDA\Half.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\CUDA\PacketMathHalf.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\CUDA\TypeCasting.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\CUDA\PacketMath.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\CUDA\MathFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\Default\Settings.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\functors\TernaryFunctors.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\functors\BinaryFunctors.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\functors\UnaryFunctors.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\functors\NullaryFunctors.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\functors\StlFunctors.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\functors\AssignmentFunctors.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\arch\CUDA\Complex.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\IO.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\DenseCoeffsBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\DenseBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\BlockMethods.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\MatrixBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\CommonCwiseUnaryOps.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\CommonCwiseBinaryOps.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\MatrixCwiseUnaryOps.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\MatrixCwiseBinaryOps.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\EigenBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Product.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CoreEvaluators.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\AssignEvaluator.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Assign.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\ArrayBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\ArrayCwiseUnaryOps.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\plugins\ArrayCwiseBinaryOps.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\BlasUtil.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\DenseStorage.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\NestByValue.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\ReturnByValue.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\NoAlias.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\PlainObjectBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Matrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Array.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CwiseTernaryOp.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CwiseBinaryOp.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CwiseUnaryOp.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CwiseNullaryOp.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CwiseUnaryView.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\SelfCwiseBinaryOp.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Dot.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\StableNorm.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Stride.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\MapBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Map.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Ref.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Block.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\VectorBlock.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Transpose.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\DiagonalMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Diagonal.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\DiagonalProduct.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Redux.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Visitor.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Fuzzy.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Swap.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CommaInitializer.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\GeneralProduct.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Solve.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Inverse.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\SolverBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\PermutationMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Transpositions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\TriangularMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\SelfAdjointView.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralBlockPanelKernel.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\Parallelizer.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\ProductEvaluators.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralMatrixVector.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralMatrixMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\SolveTriangular.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralMatrixMatrixTriangular.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\SelfadjointMatrixVector.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\SelfadjointMatrixMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\SelfadjointProduct.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\SelfadjointRank2Update.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularMatrixVector.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularMatrixMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularSolverMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularSolverVector.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\BandMatrix.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\CoreIterators.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\ConditionEstimator.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\BooleanRedux.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Select.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\VectorwiseOp.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Random.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Replicate.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Reverse.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\ArrayWrapper.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralMatrixMatrix_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralMatrixVector_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\GeneralMatrixMatrixTriangular_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\SelfadjointMatrixMatrix_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\SelfadjointMatrixVector_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularMatrixMatrix_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularMatrixVector_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\products\TriangularSolverMatrix_BLAS.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\Assign_MKL.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\GlobalFunctions.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Core\util\ReenableStupidWarnings.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\LU \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\misc\Kernel.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\misc\Image.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\LU\FullPivLU.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\LU\PartialPivLU.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\misc\lapacke.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\misc\lapacke_mangling.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\LU\PartialPivLU_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\LU\Determinant.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\LU\InverseImpl.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\LU\arch\Inverse_SSE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Cholesky \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Jacobi \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Jacobi\Jacobi.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Cholesky\LLT.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Cholesky\LDLT.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Cholesky\LLT_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\QR \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Householder \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Householder\Householder.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Householder\HouseholderSequence.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Householder\BlockHouseholder.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\QR\HouseholderQR.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\QR\FullPivHouseholderQR.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\QR\ColPivHouseholderQR.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\QR\CompleteOrthogonalDecomposition.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\QR\HouseholderQR_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\QR\ColPivHouseholderQR_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\SVD \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\misc\RealSvd2x2.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\SVD\UpperBidiagonalization.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\SVD\SVDBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\SVD\JacobiSVD.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\SVD\BDCSVD.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\SVD\JacobiSVD_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Geometry \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\OrthoMethods.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\EulerAngles.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Homogeneous.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\RotationBase.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Rotation2D.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Quaternion.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\AngleAxis.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Transform.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Translation.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Scaling.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Hyperplane.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\ParametrizedLine.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\AlignedBox.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\Umeyama.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Geometry\arch\Geometry_SSE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\Eigenvalues \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\Tridiagonalization.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\RealSchur.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\HessenbergDecomposition.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\EigenSolver.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\SelfAdjointEigenSolver.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\GeneralizedSelfAdjointEigenSolver.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\ComplexSchur.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\ComplexEigenSolver.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\RealQZ.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\GeneralizedEigenSolver.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\MatrixBaseEigenvalues.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\RealSchur_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\ComplexSchur_LAPACKE.h \
+		..\..\..\depends\eigen-eigen-323c052e1731\Eigen\src\Eigenvalues\SelfAdjointEigenSolver_LAPACKE.h \
 		ParametersManager.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QMap \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QVector \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QString \
 		Parameter.h \
 		algorithms_definitions.h \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
 		SceneLandsat8_definitions.h \
 		SceneSentinel2_definitions.h \
 		ParameterDefinitions.h \
@@ -2150,19 +2158,19 @@ debug\Algorithms.obj: Algorithms.cpp C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtC
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtWidgets\QWidget \
 		libremotesensing_global.h \
 		..\libIGDAL\Raster.h \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
 		..\libIGDAL\libIGDAL_global.h \
 		PersistenceManager.h \
 		..\libIGDAL\SpatiaLite.h \
@@ -3685,30 +3693,30 @@ debug\TONIpbpProject.obj: TONIpbpProject.cpp C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\inc
 		..\libIGDAL\Shapefile.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QMap \
 		..\libIGDAL\libIGDAL_global.h \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
 		..\libIGDAL\Raster.h \
 		PersistenceManager.h \
 		..\libIGDAL\SpatiaLite.h \
@@ -3861,30 +3869,30 @@ debug\ClassificationProject.obj: ClassificationProject.cpp C:\Qt\Qt5.6.3\5.6.3\m
 		..\libIGDAL\Shapefile.h \
 		C:\Qt\Qt5.6.3\5.6.3\msvc2015_64\include\QtCore\QMap \
 		..\libIGDAL\libIGDAL_global.h \
-		"C:\Program Files\QGIS 3.4\include\ogrsf_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_progress.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_port.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_config.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_feature.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_atomic_ops.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_featurestyle.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_conv.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_vsi.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_error.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_string.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_core.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_version.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_geometry.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_json.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_spatialref.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_srs_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_priv.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_virtualmem.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_minixml.h" \
-		"C:\Program Files\QGIS 3.4\include\ogr_api.h" \
-		"C:\Program Files\QGIS 3.4\include\gdal_frmts.h" \
-		"C:\Program Files\QGIS 3.4\include\cpl_multiproc.h" \
+		"C:\Program Files\QGIS 3.10\include\ogrsf_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_progress.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_port.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_config.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_feature.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_atomic_ops.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_featurestyle.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_conv.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_vsi.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_error.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_string.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_core.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_version.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_geometry.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_json.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_spatialref.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_srs_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_priv.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_virtualmem.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_minixml.h" \
+		"C:\Program Files\QGIS 3.10\include\ogr_api.h" \
+		"C:\Program Files\QGIS 3.10\include\gdal_frmts.h" \
+		"C:\Program Files\QGIS 3.10\include\cpl_multiproc.h" \
 		..\libIGDAL\SpatiaLite.h \
 		..\libIGDAL\Raster.h \
 		PersistenceManager.h \
